@@ -1,0 +1,51 @@
+---
+const commitments = [
+  {
+    title: 'Tecnología Avanzada',
+    description: 'Utilizamos equipos de última generación homologados por la UE para garantizar resultados óptimos.',
+    icon: '🔬'
+  },
+  {
+    title: 'Personal Cualificado',
+    description: 'Nuestro equipo está formado por técnicos certificados con amplia experiencia en el sector.',
+    icon: '👨‍🔬'
+  },
+  {
+    title: 'Garantía de Servicio',
+    description: 'Ofrecemos garantía en todos nuestros servicios y seguimiento post-tratamiento.',
+    icon: '✅'
+  },
+  {
+    title: 'Sostenibilidad',
+    description: 'Comprometidos con el medio ambiente, utilizando métodos eco-friendly y procesos sostenibles.',
+    icon: '🌍'
+  }
+];
+---
+
+<section class="py-20 bg-blue-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Compromiso de Calidad
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Nuestro compromiso con la excelencia garantiza los mejores resultados
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {commitments.map(item => (
+        <div class="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+          <div class="text-4xl mb-4">{item.icon}</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">
+            {item.title}
+          </h3>
+          <p class="text-gray-600">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

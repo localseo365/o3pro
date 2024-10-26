@@ -1,0 +1,87 @@
+---
+---
+
+<section class="bg-blue-50 py-20">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        ¿Necesita un servicio de desinfección profesional?
+      </h2>
+      <p class="text-xl text-gray-600 mb-8">
+        Llámenos al <a href="tel:+34690220944" class="text-blue-600 hover:text-blue-700 font-bold">690 22 09 44</a> o rellene el formulario
+      </p>
+      
+      <form id="contact-form" class="max-w-xl mx-auto space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input
+            type="text"
+            name="name"
+            placeholder="Nombre"
+            required
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
+        
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Teléfono"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        />
+        
+        <textarea
+          name="message"
+          placeholder="Mensaje"
+          rows="4"
+          required
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        ></textarea>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <button
+            type="submit"
+            class="flex-1 bg-blue-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-blue-700 transition-colors"
+          >
+            Enviar Mensaje
+          </button>
+          <a
+            href="tel:+34690220944"
+            class="flex-1 bg-green-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-green-700 transition-colors text-center"
+          >
+            690 22 09 44
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      body: formData
+    });
+    
+    if (response.ok) {
+      alert('Mensaje enviado correctamente. Nos pondremos en contacto pronto.');
+      e.target.reset();
+    } else {
+      throw new Error('Error al enviar el mensaje');
+    }
+  } catch (error) {
+    alert('Error al enviar el mensaje. Por favor, inténtelo de nuevo.');
+  }
+});
+</script>

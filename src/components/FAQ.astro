@@ -1,0 +1,56 @@
+---
+const faqs = [
+  {
+    question: '¿Qué es la desinfección con ozono?',
+    answer: 'La desinfección con ozono es un método natural que utiliza O₃ para eliminar virus, bacterias, hongos y malos olores. Es un potente desinfectante que no deja residuos químicos.'
+  },
+  {
+    question: '¿Es seguro el tratamiento con ozono?',
+    answer: 'Sí, cuando es aplicado por profesionales cualificados. Seguimos estrictos protocolos de seguridad y utilizamos equipos homologados que garantizan un tratamiento seguro y eficaz.'
+  },
+  {
+    question: '¿Cuánto tiempo dura el tratamiento?',
+    answer: 'La duración varía según el espacio y el tipo de tratamiento. Generalmente, una sesión puede durar entre 1 y 4 horas, incluyendo el tiempo de ventilación posterior.'
+  },
+  {
+    question: '¿Con qué frecuencia debo realizar el tratamiento?',
+    answer: 'La frecuencia depende del tipo de espacio y su uso. Para espacios comerciales recomendamos tratamientos mensuales o trimestrales, mientras que para residencias puede ser semestral.'
+  },
+  {
+    question: '¿El ozono elimina los malos olores?',
+    answer: 'Sí, el ozono es muy efectivo eliminando olores ya que destruye las moléculas que los causan, en lugar de solo enmascararlos como otros productos.'
+  },
+  {
+    question: '¿Se puede permanecer en el espacio durante el tratamiento?',
+    answer: 'No, durante el tratamiento el espacio debe estar vacío. Una vez finalizado y ventilado adecuadamente, el espacio es completamente seguro para su uso.'
+  }
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Preguntas Frecuentes Ozono
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Resolvemos sus dudas sobre la desinfección con ozono
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      <div class="space-y-6">
+        {faqs.map(faq => (
+          <div class="bg-blue-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              {faq.question}
+            </h3>
+            <p class="text-gray-600">
+              {faq.answer}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

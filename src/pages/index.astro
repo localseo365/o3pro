@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Benefits from '../components/Benefits.astro';
+import QualityCommitment from '../components/QualityCommitment.astro';
+import FAQ from '../components/FAQ.astro';
+import Testimonials from '../components/Testimonials.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "O3Pro - Desinfección Profesional con Ozono en Barcelona",
+  "description": "Servicio especializado de desinfección con ozono en Barcelona. Eliminamos virus, bacterias y olores de forma segura y eficaz. ¡Solicita presupuesto!",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "O3Pro",
+    "telephone": "+34690220944"
+  }
+};
+---
+
+<Layout 
+  title="O3Pro - Desinfección Profesional con Ozono en Barcelona"
+  description="Servicio especializado de desinfección con ozono en Barcelona. Eliminamos virus, bacterias y olores de forma segura y eficaz. ¡Solicita presupuesto!"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <main>
+    <Hero />
+    <Services />
+    <Benefits />
+    <QualityCommitment />
+    <FAQ />
+    <Testimonials />
+    <ContactCTA />
+  </main>
+</Layout>

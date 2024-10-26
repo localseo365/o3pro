@@ -1,0 +1,112 @@
+---
+const currentYear = new Date().getFullYear();
+
+const certifications = [
+  { name: 'ISO 9001:2015', description: 'Sistema de Gestión de Calidad' },
+  { name: 'ISO 14001:2015', description: 'Sistema de Gestión Ambiental' },
+  { name: 'EMAS', description: 'Sistema Comunitario de Gestión y Auditoría Medioambientales' },
+  { name: 'ROESB', description: 'Registro Oficial de Establecimientos y Servicios Biocidas' }
+];
+---
+
+<footer class="bg-gray-900 text-white py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-xl font-bold mb-4">O3Pro</h3>
+        <p class="text-gray-400">
+          Especialistas en desinfección con ozono en Barcelona y alrededores.
+        </p>
+      </div>
+      
+      <div>
+        <h3 class="text-xl font-bold mb-4">Contacto</h3>
+        <ul class="space-y-2 text-gray-400">
+          <li>
+            <a href="tel:+34690220944" class="hover:text-white">
+              690 22 09 44
+            </a>
+          </li>
+          <li class="leading-relaxed">
+            Av. Nord, 15<br>
+            08905 L'Hospitalet de Llobregat<br>
+            Barcelona
+          </li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-xl font-bold mb-4">Servicios</h3>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="/servicios" class="hover:text-white">Desinfección Comercial</a></li>
+          <li><a href="/servicios" class="hover:text-white">Desinfección Residencial</a></li>
+          <li><a href="/servicios" class="hover:text-white">Tratamiento de Olores</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-xl font-bold mb-4">Certificaciones</h3>
+        <ul class="space-y-2 text-gray-400">
+          {certifications.map(cert => (
+            <li class="flex items-center">
+              <span class="text-blue-400 mr-2">✓</span>
+              <span title={cert.description}>{cert.name}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-800 mt-8 pt-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="text-gray-400">
+          <p>&copy; {currentYear} O3Pro. Todos los derechos reservados.</p>
+        </div>
+        <div class="text-gray-400 md:text-right">
+          <a href="/privacidad" class="hover:text-white mr-4">Política de Privacidad</a>
+          <a href="/cookies" class="hover:text-white mr-4">Política de Cookies</a>
+          <a href="/aviso-legal" class="hover:text-white">Aviso Legal</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-800 p-4 hidden">
+    <div class="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-gray-400">
+        Utilizamos cookies para mejorar su experiencia en nuestro sitio web. 
+        <a href="/cookies" class="text-blue-400 hover:text-blue-300">Más información</a>
+      </p>
+      <div class="flex gap-4">
+        <button id="accept-cookies" class="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700">
+          Aceptar
+        </button>
+        <button id="reject-cookies" class="bg-gray-700 text-white px-4 py-2 rounded text-sm hover:bg-gray-600">
+          Rechazar
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Cookie Banner Logic
+  const cookieBanner = document.getElementById('cookie-banner');
+  const acceptButton = document.getElementById('accept-cookies');
+  const rejectButton = document.getElementById('reject-cookies');
+
+  if (!localStorage.getItem('cookiePreference')) {
+    cookieBanner.classList.remove('hidden');
+  }
+
+  acceptButton.addEventListener('click', () => {
+    localStorage.setItem('cookiePreference', 'accepted');
+    cookieBanner.classList.add('hidden');
+  });
+
+  rejectButton.addEventListener('click', () => {
+    localStorage.setItem('cookiePreference', 'rejected');
+    cookieBanner.classList.add('hidden');
+  });
+</script></content>

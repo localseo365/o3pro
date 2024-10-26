@@ -1,0 +1,55 @@
+---
+const navItems = [
+  { href: '/', text: 'Inicio' },
+  { href: '/servicios', text: 'Servicios' },
+  { href: '/areas', text: 'Áreas de Servicio' },
+  { href: '/casos', text: 'Casos de Éxito' },
+  { href: '/contacto', text: 'Contacto' },
+];
+---
+
+<header class="bg-white/95 backdrop-blur-sm shadow-md fixed w-full z-50">
+  <div class="container mx-auto px-4 py-4">
+    <nav class="flex items-center justify-between">
+      <a href="/" class="text-2xl font-bold text-blue-600">O3Pro</a>
+      
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-6">
+        {navItems.map(item => (
+          <a href={item.href} class="text-gray-600 hover:text-blue-600 transition-colors">
+            {item.text}
+          </a>
+        ))}
+      </div>
+
+      <a href="tel:+34690220944" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+        690 22 09 44
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-blue-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+      {navItems.map(item => (
+        <a href={item.href} class="block py-2 text-gray-600 hover:text-blue-600 transition-colors">
+          {item.text}
+        </a>
+      ))}
+    </div>
+  </div>
+</header>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>

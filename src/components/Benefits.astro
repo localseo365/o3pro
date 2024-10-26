@@ -1,0 +1,46 @@
+---
+const benefits = [
+  {
+    title: 'Eficacia Comprobada',
+    description: 'El ozono elimina el 99.99% de virus, bacterias y otros patógenos.',
+    icon: '✓'
+  },
+  {
+    title: 'Respetuoso con el Medio Ambiente',
+    description: 'Método 100% natural sin residuos químicos.',
+    icon: '🌱'
+  },
+  {
+    title: 'Certificación Profesional',
+    description: 'Personal cualificado y equipos homologados.',
+    icon: '📜'
+  }
+];
+---
+
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        ¿Por qué elegir O3Pro?
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Descubra las ventajas de nuestro servicio profesional de desinfección con ozono
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {benefits.map(benefit => (
+        <div class="bg-white rounded-lg p-8 shadow-md">
+          <div class="text-3xl text-blue-600 mb-4">{benefit.icon}</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">
+            {benefit.title}
+          </h3>
+          <p class="text-gray-600">
+            {benefit.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

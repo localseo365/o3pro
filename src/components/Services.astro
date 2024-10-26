@@ -1,0 +1,61 @@
+---
+const services = [
+  {
+    title: 'Desinfección Ambiental',
+    description: 'Eliminación de virus, bacterias y otros patógenos en espacios interiores para garantizar un ambiente saludable.',
+    icon: '🌟'
+  },
+  {
+    title: 'Higiene Alimentaria',
+    description: 'Tratamientos especializados para la industria alimentaria, asegurando la máxima seguridad en la manipulación de alimentos.',
+    icon: '🍽️'
+  },
+  {
+    title: 'Tratamientos de Aguas',
+    description: 'Purificación y desinfección de agua mediante ozono, eliminando contaminantes y garantizando su calidad.',
+    icon: '💧'
+  },
+  {
+    title: 'Desinfección en Agricultura',
+    description: 'Soluciones específicas para el sector agrícola, mejorando la producción y eliminando patógenos.',
+    icon: '🌱'
+  },
+  {
+    title: 'Control de Plagas – DDD',
+    description: 'Servicios integrales de Desinfección, Desinsectación y Desratización con métodos seguros y eficaces.',
+    icon: '🛡️'
+  },
+  {
+    title: 'Soluciones con Ozono',
+    description: 'Aplicaciones personalizadas de ozono para diferentes sectores y necesidades específicas.',
+    icon: '⚡'
+  }
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Nuestros Servicios
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Ofrecemos soluciones profesionales de desinfección con ozono adaptadas a sus necesidades
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map(service => (
+        <div class="bg-blue-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
+          <div class="text-4xl mb-4">{service.icon}</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">
+            {service.title}
+          </h3>
+          <p class="text-gray-600">
+            {service.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

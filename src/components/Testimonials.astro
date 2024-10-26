@@ -1,0 +1,62 @@
+---
+const testimonials = [
+  {
+    name: 'María García',
+    business: 'Restaurante La Mesa',
+    text: 'Excelente servicio. La desinfección con ozono eliminó todos los olores persistentes de nuestra cocina.',
+    rating: 5,
+    image: 'https://randomuser.me/api/portraits/women/1.jpg'
+  },
+  {
+    name: 'Juan Martínez',
+    business: 'Hotel Barcelona',
+    text: 'Profesionales y eficientes. Ahora nuestros huéspedes se sienten más seguros que nunca.',
+    rating: 5,
+    image: 'https://randomuser.me/api/portraits/men/1.jpg'
+  },
+  {
+    name: 'Ana Rodríguez',
+    business: 'Clínica Dental Sonrisa',
+    text: 'Un servicio imprescindible para mantener nuestra clínica libre de patógenos.',
+    rating: 5,
+    image: 'https://randomuser.me/api/portraits/women/2.jpg'
+  }
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Lo que dicen nuestros clientes
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Descubra por qué empresas y particulares confían en O3Pro
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map(testimonial => (
+        <div class="bg-blue-50 rounded-lg p-6">
+          <div class="flex items-center mb-4">
+            <img 
+              src={testimonial.image} 
+              alt={testimonial.name}
+              class="w-16 h-16 rounded-full object-cover mr-4"
+            />
+            <div>
+              <p class="font-bold text-gray-900">{testimonial.name}</p>
+              <p class="text-gray-600">{testimonial.business}</p>
+            </div>
+          </div>
+          <div class="flex text-yellow-400 mb-4">
+            {Array.from({ length: testimonial.rating }).map(() => (
+              <span>★</span>
+            ))}
+          </div>
+          <p class="text-gray-600 italic">"{testimonial.text}"</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,117 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "O3Pro - Desinfección Profesional con Ozono",
+  "image": "/images/o3pro-logo.webp",
+  "description": "Servicio profesional de desinfección con ozono en Barcelona. Eliminamos virus, bacterias y olores de forma segura y eficaz.",
+  "@id": "https://o3pro.es",
+  "url": "https://o3pro.es",
+  "telephone": "+34690220944",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Nord, 15",
+    "addressLocality": "L'Hospitalet de Llobregat",
+    "addressRegion": "Barcelona",
+    "postalCode": "08905",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.3851,
+    "longitude": 2.1734
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.3851,
+      "longitude": 2.1734
+    },
+    "geoRadius": "50000"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "priceRange": "€€",
+  "sameAs": [
+    "https://www.facebook.com/o3pro",
+    "https://www.instagram.com/o3pro_barcelona"
+  ]
+};
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- SEO Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="desinfección con ozono, desinfección Barcelona, limpieza ozono, desinfecció amb ozó, Barcelona, L'Hospitalet de Llobregat, tratamiento ozono, eliminación olores, desinfección profesional" />
+    <meta name="author" content="O3Pro" />
+    <meta name="geo.region" content="ES-CT" />
+    <meta name="geo.placename" content="Barcelona" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://o3pro.es" />
+    <meta property="og:image" content="https://o3pro.es/images/o3pro-social.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="ca_ES" />
+    <meta property="og:site_name" content="O3Pro" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://o3pro.es/images/o3pro-social.jpg" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://o3pro.es" />
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+  </head>
+  <body class="min-h-screen bg-white">
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>
